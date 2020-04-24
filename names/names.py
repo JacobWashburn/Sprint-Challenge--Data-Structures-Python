@@ -48,30 +48,30 @@ print(f"runtime: {end_time - start_time} seconds")
 """-----------------------------------------------"""
 
 
-""" Try 3 with double binary tree storage """
-
-start_time = time.time()
-
-""" Binary tree initialization """
-b1 = BinarySearchTree('m')
-b2 = BinarySearchTree('m')
-f = open('names_2.txt', 'r')
-[b1.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
-f.close()
-
-f = open('names_1.txt', 'r')
-[b2.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
-f.close()
-
-duplicates = []  # Return the list of duplicates in this data structure
-
-""" Try 3: runs in .11 seconds """
-b2.for_each(b1.contains, duplicates.append)
-
-end_time = time.time()
-print('\n----- Try 3 -----')
-print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print(f"runtime: {end_time - start_time} seconds")
+# """ Try 3 with double binary tree storage """
+#
+# start_time = time.time()
+#
+# """ Binary tree initialization """
+# b1 = BinarySearchTree('m')
+# b2 = BinarySearchTree('m')
+# f = open('names_2.txt', 'r')
+# [b1.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
+# f.close()
+#
+# f = open('names_1.txt', 'r')
+# [b2.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
+# f.close()
+#
+# duplicates = []  # Return the list of duplicates in this data structure
+#
+# """ Try 3: runs in .11 seconds """
+# b2.for_each(b1.contains, duplicates.append)
+#
+# end_time = time.time()
+# print('\n----- Try 3 -----')
+# print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+# print(f"runtime: {end_time - start_time} seconds")
 
 
 """-----------------------------------------------"""
@@ -79,27 +79,28 @@ print(f"runtime: {end_time - start_time} seconds")
 """-----------------------------------------------"""
 
 
-""" Try 4 with single binary tree storage """
+# """ Try 4 with single binary tree storage """
+#
+# start_time = time.time()
+#
+# """ Binary tree initialization """
+# b1 = BinarySearchTree('m')
+# """ Try 4: runs in .07 seconds"""
+# f = open('names_2.txt', 'r')
+# [b1.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
+# f.close()
+#
+# duplicates = []  # Return the list of duplicates in this data structure
+#
+# f = open('names_1.txt', 'r')
+# [duplicates.append(v) for v in f.read().split("\n") if b1.contains(v.lower())]  # List containing 10000 names
+# f.close()
+#
+# end_time = time.time()
+# print('\n----- Try 4 -----')
+# print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+# print (f"runtime: {end_time - start_time} seconds")
 
-start_time = time.time()
-
-""" Binary tree initialization """
-b1 = BinarySearchTree('m')
-""" Try 4: runs in .07 seconds"""
-f = open('names_2.txt', 'r')
-[b1.insert(v.lower()) for v in f.read().split("\n")]  # List containing 10000 names
-f.close()
-
-duplicates = []  # Return the list of duplicates in this data structure
-
-f = open('names_1.txt', 'r')
-[duplicates.append(v) for v in f.read().split("\n") if b1.contains(v.lower())]  # List containing 10000 names
-f.close()
-
-end_time = time.time()
-print('\n----- Try 4 -----')
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
