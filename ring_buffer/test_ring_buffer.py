@@ -52,26 +52,26 @@ class ArrayRingBufferTests(unittest.TestCase):
         self.buffer.append('b')
         self.buffer.append('c')
         self.buffer.append('d')
-        self.assertEqual(len(self.buffer.storage), 5)
-        self.assertEqual(self.buffer.get(), ['a', 'b', 'c', 'd'])
+        self.assertEqual(5, len(self.buffer.storage))
+        self.assertEqual(['a', 'b', 'c', 'd'], self.buffer.get())
 
         self.buffer.append('e')
         self.assertEqual(len(self.buffer.storage), 5)
-        self.assertEqual(self.buffer.get(), ['a', 'b', 'c', 'd', 'e'])
+        self.assertEqual(['a', 'b', 'c', 'd', 'e'], self.buffer.get())
 
         self.buffer.append('f')
         self.assertEqual(len(self.buffer.storage), 5)
-        self.assertEqual(self.buffer.get(), ['f', 'b', 'c', 'd', 'e'])
+        self.assertEqual(['f', 'b', 'c', 'd', 'e'], self.buffer.get())
 
         self.buffer.append('g')
         self.buffer.append('h')
         self.buffer.append('i')
-        self.assertEqual(len(self.buffer.storage), 5)
-        self.assertEqual(self.buffer.get(), ['f', 'g', 'h', 'i', 'e'])
+        self.assertEqual(5, len(self.buffer.storage))
+        self.assertEqual(['f', 'g', 'h', 'i', 'e'], self.buffer.get())
 
         for i in range(50):
             self.buffer_2.append(i)
-        self.assertEqual(self.buffer_2.get(), [45, 46, 47, 48, 49])
+        self.assertEqual([45, 46, 47, 48, 49], self.buffer_2.get())
 
 
 if __name__ == '__main__':
