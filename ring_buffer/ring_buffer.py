@@ -9,7 +9,7 @@ class RingBuffer:
 
     def append(self, item):
         s = self.storage
-        if len(self.storage) == self.capacity:
+        if len(s) == self.capacity:
             if self.current.next is None:
                 s.remove_from_head()
                 new_current = s.add_to_head(item)
@@ -42,10 +42,29 @@ class RingBuffer:
 
 class ArrayRingBuffer:
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
+        self.current = 0
+        self.storage = [None] * capacity
+
+    def __len__(self):
+        return self.capacity
 
     def append(self, item):
-        pass
+        s = self.storage
+        c = self.current
+        if c:
+            if not s[c] and len(s[c:]) == 1:
+                s[c] = item
+                self.current = 0
+            else:
+                s[c] = item
+                if c < len(self) - 1:
+                    self.current += 1
+                else:
+                    self.current = 0
+        else:
+            s[c] = item
+            self.current += 1
 
     def get(self):
-        pass
+        return [v for v in self.storage if v]
